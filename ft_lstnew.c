@@ -6,7 +6,7 @@
 /*   By: ebouabba <ebouabba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 01:11:09 by ebouabba          #+#    #+#             */
-/*   Updated: 2021/11/24 01:12:10 by ebouabba         ###   ########.fr       */
+/*   Updated: 2021/11/27 13:26:12 by ebouabba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ t_list	*ft_lstnew(void *content)
 {
 	t_list	*elt;
 
-	elt = (t_list *) malloc(sizeof(*elt));
+	elt = (t_list *) malloc(sizeof(t_list));
 	if (!elt)
 		return (NULL);
 	elt->content = content;

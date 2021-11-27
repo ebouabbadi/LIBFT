@@ -6,7 +6,7 @@
 /*   By: ebouabba <ebouabba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/12 15:47:59 by ebouabba          #+#    #+#             */
-/*   Updated: 2021/11/24 02:06:56 by ebouabba         ###   ########.fr       */
+/*   Updated: 2021/11/25 12:05:28 by ebouabba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*ft_strdup(const char *s1)
 	char	*s2;
 
 	len = ft_strlen(s1);
-	s2 = (char *)malloc(len + 1);
+	s2 = (char *)malloc(sizeof(char) * (len + 1));
 	if (!s2)
 		return (NULL);
 	i = 0;

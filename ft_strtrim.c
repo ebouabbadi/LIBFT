@@ -6,7 +6,7 @@
 /*   By: ebouabba <ebouabba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:09:38 by ebouabba          #+#    #+#             */
-/*   Updated: 2021/11/24 11:02:07 by ebouabba         ###   ########.fr       */
+/*   Updated: 2021/11/25 15:34:35 by ebouabba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	if (!s1)
 		return (NULL);
 	last = ft_strlen(s1) - 1;
-	while (ft_strchr(set, s1[first]) && s1[first])
+	while (ft_strchr(set, s1[first]) && s1[first] != '\0')
 		first++;
 	while (ft_strchr(set, s1[last]) && last >= first)
 	{

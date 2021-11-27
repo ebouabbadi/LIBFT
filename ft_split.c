@@ -6,7 +6,7 @@
 /*   By: ebouabba <ebouabba@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/17 17:10:12 by ebouabba          #+#    #+#             */
-/*   Updated: 2021/11/24 03:48:46 by ebouabba         ###   ########.fr       */
+/*   Updated: 2021/11/25 16:00:31 by ebouabba         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ static size_t	ft_nbr_tab(char const *s, char c)
 	return (count);
 }
 
-static char	**free_tab(char **tab)
+static char	**ft_free(char **tab)
 {
 	int	i;
 
@@ -51,7 +51,7 @@ char	**ft_split(char const *s, char c)
 {
 	char	**tab;
 	size_t	i;
-	size_t	j;
+	size_t	len;
 
 	i = 0;
 	if (!s)
@@ -63,14 +63,14 @@ char	**ft_split(char const *s, char c)
 	{
 		while (*s && *s == c)
 			s++;
-		j = 0;
-		while (s[j] && s[j] != c)
-			j++;
-		if (j != 0)
-			tab[i++] = ft_substr(s, 0, j);
-		if (!tab[i - 1] && j != 0)
-			return (free_tab(tab));
-		s = s + j;
+		len = 0;
+		while (s[len] != '\0' && s[len] != c)
+			len++;
+		if (len != 0)
+			tab[i++] = ft_substr(s, 0, len);
+		if (!tab[i - 1] && len != 0)
+			return (ft_free(tab));
+		s = s + len;
 	}
 	tab[i] = NULL;
 	return (tab);
