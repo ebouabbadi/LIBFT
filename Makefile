@@ -16,24 +16,33 @@ SRC_FILE = ft_putnbr_fd.c ft_putendl_fd.c ft_putstr_fd.c ft_putstr_fd.c ft_putch
 				 		 ft_isdigit.c ft_isprint.c ft_memchr.c ft_memcmp.c ft_memcpy.c \
 						  	ft_memmove.c ft_memset.c ft_strchr.c ft_strrchr.c ft_strlcpy.c \
 							  	ft_strlcat.c ft_strlen.c ft_strncmp.c \
-									ft_tolower.c ft_toupper.c ft_strnstr.c ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c \
-				ft_lstclear.c ft_lstiter.c ft_lstmap.c
+									ft_tolower.c ft_toupper.c \
+										 ft_strnstr.c \
+									
+SRC_FILE_BONUS = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c \
+						ft_lstadd_back.c ft_lstdelone.c \
+							ft_lstclear.c ft_lstiter.c \
+									ft_lstmap.c \
 
 NAME = libft.a
-OBJ = $(SRC_FILE:.c=.o)
+OBJ_FILE = $(SRC_FILE:.c=.o)
+OBJ_FILE_BONUS = $(SRC_FILE_BONUS:.c=.o) 
 CFLAGS = -Wall -Werror -Wextra
 
-a : $(NAME)
+all : $(NAME)
 
-$(NAME) : $(OBJ)
-	@ar rc $(NAME) $(OBJ)
+$(NAME) : $(OBJ_FILE)
+	ar rc $(NAME) $(OBJ_FILE)
 
-c :
-	rm -f $(OBJ)
+clean :
+	rm -f $(OBJ_FILE) $(OBJ_FILE_BONUS)
 
-f :	c
+fclean :	clean
 	rm -f $(NAME)
 
-r : f a
+re : fclean all
 
-.PHONY : c f r
+bonus : $(OBJ_FILE_BONUS)
+	ar rc $(NAME) $(OBJ_FILE_BONUS)
+
+.PHONY : clean fclean re
